@@ -61,6 +61,24 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3 ">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
+                            <div class="d-flex flex-column col-md-6">
+                                <div class="d-inline-flex">
+                                    <input class="form-check-input" type="radio" name="radio_button_gender" id="Male">
+                                    <label class="form-check-label" for="Male">
+                                        Male
+                                    </label>
+                                </div>
+                                <div class="d-inline-flex">
+                                    <input class="form-check-input" type="radio" name="radio_button_gender" id="Female" checked>
+                                    <label class="form-check-label" for="Female">
+                                        Female
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
