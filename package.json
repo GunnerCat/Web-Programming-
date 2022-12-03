@@ -21,6 +21,6 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "air-datepicker": "^3.3.1"
+        "jquery": "^3.6.1"
     }
 }

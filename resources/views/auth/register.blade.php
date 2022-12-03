@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -79,6 +82,26 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3 ">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Date of birth') }}</label>
+                            <div class="col-md-6">
+                                <input class="date form-control text-start" style="float:right" type="button" data-toggle="tooltip" title="mm-dd-yy">
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Country') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+
+
+
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -86,10 +109,21 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $('.date').datepicker({  
+       format: 'mm-dd-yyyy'
+     });  
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+</script> 
 @endsection
