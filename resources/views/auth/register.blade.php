@@ -69,7 +69,7 @@
 
                         {{-- Gender --}}
                         <div class="row mb-3 ">
-                            <label for="radio_button_gender" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }} required</label>
+                            <label for="radio_button_gender" class="col-md-4 col-form-label text-md-end" required>{{ __('Gender') }}</label>
 
                             <div class="d-flex flex-column col-md-6">
                                 {{-- what the hell, how to le validate a radio button???? kalo bisa bantu gw ngertiin radio button validation ren--}}
