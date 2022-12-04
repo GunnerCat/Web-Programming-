@@ -4,7 +4,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-<div class="container">
+<div class="container w-50">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -13,7 +13,8 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
+                        
+                        {{-- Name --}}
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -28,6 +29,7 @@
                             </div>
                         </div>
 
+                        {{-- Email --}}
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
@@ -41,7 +43,8 @@
                                 @enderror
                             </div>
                         </div>
-
+                        
+                        {{-- Password --}}
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
@@ -64,44 +67,69 @@
                             </div>
                         </div>
 
+                        {{-- Gender --}}
                         <div class="row mb-3 ">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
+                            <label for="radio_button_gender" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }} required</label>
+
                             <div class="d-flex flex-column col-md-6">
+                                {{-- what the hell, how to le validate a radio button???? kalo bisa bantu gw ngertiin radio button validation ren--}}
                                 <div class="d-inline-flex">
-                                    <input class="form-check-input" type="radio" name="radio_button_gender" id="Male">
+                                    <input class="form-check-input me-1 @error('radio_button_gender') is-invalid @enderror" type="radio" name="radio_button_gender" id="Male" value="Male">
                                     <label class="form-check-label" for="Male">
                                         Male
                                     </label>
                                 </div>
                                 <div class="d-inline-flex">
-                                    <input class="form-check-input" type="radio" name="radio_button_gender" id="Female" checked>
+                                    <input class="form-check-input me-1 @error('radio_button_gender') is-invalid @enderror" type="radio"  name="radio_button_gender" id="Female" value="Female" >
                                     <label class="form-check-label" for="Female">
                                         Female
                                     </label>
                                 </div>
+                                @error('radio_button_gender')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 
+                        {{-- DOB --}}
                         <div class="row mb-3 ">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Date of birth') }}</label>
+                            <label for="DOB" class="col-md-4 col-form-label text-md-end"> {{ __('Date of birth') }}</label>
                             <div class="col-md-6">
-                                <input class="date form-control text-start" style="float:right" type="button" data-toggle="tooltip" title="mm-dd-yy">
+                                {{-- if possible make this a button instead of a writeable input box, but i dont really know how to make it :/ --}}
+                                <input class="date form-control @error('DOB') is-invalid @enderror" name="DOB" style="float:right" type="text" data-toggle="tooltip" title="yy-mm-dd" required>
+                                @error('DOB')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 
-
+                        {{-- Country name isnt using quite a db relationship that i want, storaging base on country id, but oh well maybe later--}}
                         <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Country') }}</label>
-
+                            <label for="country" class="col-md-4 col-form-label text-md-end">{{ __('Country') }}</label>
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <select class="col-form-label form-control" style="" name="country" required>
+                                    <option value="" selected disabled hidden>Select a country</option>
+                                    @foreach ($Countries as $country)
+                                    <option value={{$country['name']}}>{{$country['name']}}</option>
+                                    @endforeach
+                                    
+                                </select>
+                                @error('country')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
-
-
-
-
-
+                        
+                        
+                        
+                        
+                        
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -109,7 +137,9 @@
                                 </button>
                             </div>
                         </div>
-
+                        <div class="row mb-0">
+                            <p> have an Account? <a href="{{route('login')}}">Login Here</a></p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -118,7 +148,7 @@
 </div>
 <script type="text/javascript">
     $('.date').datepicker({  
-       format: 'mm-dd-yyyy'
+       format: 'yyyy-mm-dd'
      });  
 
     $(function () {
