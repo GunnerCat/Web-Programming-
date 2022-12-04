@@ -53,6 +53,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // i genuinely do not know what is going on with the radio button gender validation, but it doesnt work
+            'radio_button_gender' => ['required | in:Male,Female'],
+            'DOB' => ['required'],
+            'country' => ['required'],
+
         ]);
     }
 
@@ -68,6 +73,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'gender' => $data['radio_button_gender'],
+            'dob' => $data['DOB'], 
+            'country' => $data['country'], 
+
         ]);
     }
 }
