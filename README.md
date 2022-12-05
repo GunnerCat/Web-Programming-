@@ -19,3 +19,4 @@ This is le project for Lab
 
 ## Quality Task List
 - [ ] Show Gender error when the validation isnt fullfilled
+- [ ] Change input box from writeable input to button or some sort idk 
