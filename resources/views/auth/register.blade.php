@@ -71,16 +71,16 @@
                         <div class="row mb-3 ">
                             <label for="radio_button_gender" class="col-md-4 col-form-label text-md-end" >{{ __('Gender') }}</label>
 
-                            <div class="d-flex flex-column col-md-6 @error('radio_button_gender') is-invalid @enderror">
+                            <div class="d-flex flex-column col-md-6 @error('radio_button_gender') is-invalid  @enderror">
                                 {{-- what the hell, how to le validate a radio button???? kalo bisa bantu gw ngertiin radio button validation ren--}}
-                                <div class="d-inline-flex">
-                                    <input class="form-check-input me-1 " type="radio" name="radio_button_gender" id="Male" value="Male">
+                                <div class="d-inline-flex form-check">
+                                    <input class="form-check-input me-1 " type="radio" name="radio_button_gender" id="Male" value="Male" required>
                                     <label class="form-check-label" for="Male">
                                         Male
                                     </label>
                                 </div>
-                                <div class="d-inline-flex">
-                                    <input class="form-check-input me-1" type="radio"  name="radio_button_gender" id="Female" value="Female" >
+                                <div class="d-inline-flex form-check">
+                                    <input class="form-check-input me-1" type="radio"  name="radio_button_gender" id="Female" value="Female" required>
                                     <label class="form-check-label" for="Female">
                                         Female
                                     </label>
@@ -90,8 +90,8 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+                                
                             </div>
-                        </div>
 
                         {{-- DOB --}}
                         <div class="row mb-3 ">
