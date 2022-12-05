@@ -19,7 +19,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -63,24 +63,24 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
                             </div>
                         </div>
 
                         {{-- Gender --}}
                         <div class="row mb-3 ">
-                            <label for="radio_button_gender" class="col-md-4 col-form-label text-md-end" required>{{ __('Gender') }}</label>
+                            <label for="radio_button_gender" class="col-md-4 col-form-label text-md-end" >{{ __('Gender') }}</label>
 
-                            <div class="d-flex flex-column col-md-6">
+                            <div class="d-flex flex-column col-md-6 @error('radio_button_gender') is-invalid @enderror">
                                 {{-- what the hell, how to le validate a radio button???? kalo bisa bantu gw ngertiin radio button validation ren--}}
                                 <div class="d-inline-flex">
-                                    <input class="form-check-input me-1 @error('radio_button_gender') is-invalid @enderror" type="radio" name="radio_button_gender" id="Male" value="Male">
+                                    <input class="form-check-input me-1 " type="radio" name="radio_button_gender" id="Male" value="Male">
                                     <label class="form-check-label" for="Male">
                                         Male
                                     </label>
                                 </div>
                                 <div class="d-inline-flex">
-                                    <input class="form-check-input me-1 @error('radio_button_gender') is-invalid @enderror" type="radio"  name="radio_button_gender" id="Female" value="Female" >
+                                    <input class="form-check-input me-1" type="radio"  name="radio_button_gender" id="Female" value="Female" >
                                     <label class="form-check-label" for="Female">
                                         Female
                                     </label>
@@ -98,7 +98,7 @@
                             <label for="DOB" class="col-md-4 col-form-label text-md-end"> {{ __('Date of birth') }}</label>
                             <div class="col-md-6">
                                 {{-- if possible make this a button instead of a writeable input box, but i dont really know how to make it :/ --}}
-                                <input class="date form-control @error('DOB') is-invalid @enderror" name="DOB" style="float:right" type="text" data-toggle="tooltip" title="yy-mm-dd" required>
+                                <input class="date form-control @error('DOB') is-invalid @enderror" name="DOB" style="float:right" type="text" data-toggle="tooltip" title="yy-mm-dd" >
                                 @error('DOB')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -111,7 +111,7 @@
                         <div class="row mb-3">
                             <label for="country" class="col-md-4 col-form-label text-md-end">{{ __('Country') }}</label>
                             <div class="col-md-6">
-                                <select class="col-form-label form-control" style="" name="country" required>
+                                <select class="col-form-label form-control @error('country') is-invalid @enderror" style="" name="country" >
                                     <option value="" selected disabled hidden>Select a country</option>
                                     @foreach ($Countries as $country)
                                     <option value={{$country['name']}}>{{$country['name']}}</option>
