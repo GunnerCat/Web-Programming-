@@ -10,3 +10,12 @@
 ## About Project
 
 This is le project for Lab 
+
+##IMPORTANT TASK LIST
+- [ ] change db relationship and interaction of country and user
+- [ ] Add validation in which date must be before today but after 01-01-1900
+- [x] Validation of password in which password needs to be alphanumeric and has a minimum 8 characters
+- [ ] 
+
+## Quality Task List
+- [ ] Show Gender error when the validation isnt fullfilled
