@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
 <div class="container w-50">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -98,7 +96,12 @@
                             <label for="DOB" class="col-md-4 col-form-label text-md-end"> {{ __('Date of birth') }}</label>
                             <div class="col-md-6">
                                 {{-- if possible make this a button instead of a writeable input box, but i dont really know how to make it :/ --}}
-                                <input class="date form-control @error('DOB') is-invalid @enderror" name="DOB" style="float:right" type="text" data-toggle="tooltip" title="yy-mm-dd" >
+                                <div class="input-group date @error('DOB') is-invalid @enderror" data-provide="datepicker"   >
+                                    <input type="text" class="form-control" name="DOB" style="float:right" type="text" data-toggle="tooltip" title="yy-mm-dd">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
                                 @error('DOB')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -147,9 +150,12 @@
     </div>
 </div>
 <script type="text/javascript">
-    $('.date').datepicker({  
-       format: 'yyyy-mm-dd'
-     });  
+    $(function(){
+        $('.date').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+
 
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -33,7 +36,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        @if(!request()->is('login*'))
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Category
+                                </a>
+                                {{-- Category foreach added, please implement it through --}}
+                                
+                                <ul class="dropdown-menu">
+                                    @foreach ($categories as $category)
+                                    <li><a class="dropdown-item" href="#">{{$category['name']}}</a></li>
+                                    @endforeach
+                                </ul>
+                                @Auth
+                                
+                                @endauth
+                                
+                            </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
