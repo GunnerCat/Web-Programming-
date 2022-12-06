@@ -54,6 +54,15 @@
                                 
                             </li>
                         @endif
+                        @admin
+                        <div class="hstack gap-1">
+
+                            <div class="vr"></div>
+                        </div>
+                        <a class="nav-link nav-item" href="#" >
+                            Manage Product
+                        </a>
+                        @endadmin
                     </ul>
 
                     <!-- Right Side Of Navbar -->
