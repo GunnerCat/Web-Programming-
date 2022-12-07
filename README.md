@@ -15,10 +15,12 @@ This is le project for Lab
 - [ ] change db relationship and interaction of country and user
 - [ ] Add validation in which date must be before today but after 01-01-1900
 - [x] Validation of password in which password needs to be alphanumeric and has a minimum 8 characters
-- [ ] Create Database for: Category
-- [ ] Create Database for: Items
-- [ ] Assign Category to Website
-- [ ] Assign Items to Website
+- [x] Create Database for: Category
+- [x] Create Database for: Items
+- [x] Assign Category to Website
+- [x] Assign Items to Website
+- [ ] create product Management (CRUD)
+
 
 ## Quality Task List
 - [ ] Show Gender error when the validation isnt fullfilled
