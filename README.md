@@ -19,7 +19,10 @@ This is le project for Lab
 - [x] Create Database for: Items
 - [x] Assign Category to Website
 - [x] Assign Items to Website
-- [ ] create product Management (CRUD)
+- [ ] product Management (CRUD)
+- [ ] Make View All
+- [ ] build back end query
+- [ ] build back end query
 
 
 ## Quality Task List
