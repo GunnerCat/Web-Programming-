@@ -26,12 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $items = Item::all()->groupBy('category_id');
+        $items = Item::all()->groupBy('category_id');        
+        $categories=Category::all();
 
-
-        
-
-
-        return view('content.home',['items'=>$items]);
+        return view('content.home',compact('categories','items'));
     }
 }

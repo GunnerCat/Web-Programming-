@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected $hidden=['created_at','updated_at'];
     public function items(){
         return $this->hasMany(Item::class);
     }

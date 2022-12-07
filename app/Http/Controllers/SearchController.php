@@ -9,7 +9,7 @@ class SearchController extends Controller
 {
     public function Search(){
         $query = $_GET['query'];
-        $product = item::where('name','LIKE','%'.$query.'%')->get();
-        return view('content.result',compact('product'));
+        $products = item::where('name','LIKE','%'.$query.'%')->get();
+        return view('content.result',compact('products'));
     }
 }

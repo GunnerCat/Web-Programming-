@@ -13,12 +13,9 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-            </form>
-
-
-
+            </form>             
             <div class="card mb-3">
-                <div class="card-header">{{'Items for '.$_GET["query"] }} </div>
+                <div class="card-header">{{$category['name']}}</div>
                 
                 <div class="card-body">
                     @if (session('status'))
@@ -28,22 +25,24 @@
                     @endif
                     
                     <div class="container">
-                        <div class="d-flex justify-content-auto  row row-cols-5 ">
-                            @foreach ($products as $product)
-                            <a class="col text-decoration-none  " href="#">
+                        <div class="d-flex justify-content-auto row row-cols-5 ">
+                            @foreach($items as $item)
+                            <a class="col text-decoration-none" href="#" >
                                 <img class="img-fluid img-thumbnail"   src="{{Storage::url('Images\nerfGun.jpg')}}" alt="Responsive image">
                                 <div class="text-start row ">
-                                    <span class="d-inline-block text-truncate" style="max-width:300px; ">{{$product['name']}} </span>
-                                    <span>IDR {{$product['price']}}</span>
+                                    <span class="d-inline-block text-truncate" style="max-width:300px; ">{{$item['name']}} </span>
+                                    <span >IDR {{$item['price']}}</span>
                                 </div>
                             </a>
-                            @endforeach
-                        </div>
-                    </div>            
-                </div>
-            </div>
 
-            
+                            @endforeach
+                            
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>      
         </div>
     </div>
 </div>
