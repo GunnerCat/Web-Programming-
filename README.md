@@ -13,18 +13,21 @@ This is le project for Lab
 
 ##IMPORTANT TASK LIST
 - [x] change db relationship and interaction of category and user
-- [ ] Add validation in which date must be before today but after 01-01-1900
 - [x] Validation of password in which password needs to be alphanumeric and has a minimum 8 characters
 - [x] Create Database for: Category
 - [x] Create Database for: Items
 - [x] Assign Category to Website
 - [x] Assign Items to Website
+- [x] build back end query
+- [x] Make View All
+- [x] Item Detail
+- [ ] Add validation in which date must be before today but after 01-01-1900
 - [ ] product Management (CRUD)
-- [ ] Make View All
-- [ ] build back end query
-- [ ] build back end query
 
 
-## Quality Task List
+
+
+## QOL Task List
 - [ ] Show Gender error when the validation isnt fullfilled
 - [ ] Change input box from writeable input to button or some sort idk 
+- [ ] Add Pagination
