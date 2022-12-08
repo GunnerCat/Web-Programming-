@@ -23,6 +23,8 @@ This is le project for Lab
 - [x] Item Detail
 - [ ] Add validation in which date must be before today but after 01-01-1900
 - [ ] product Management (CRUD)
+- [ ] make receipt DB
+
 
 
 
