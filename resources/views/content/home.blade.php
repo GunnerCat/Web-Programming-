@@ -3,9 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-lg-12">
+        <div class="col-xxl-12">
             <form action="{{route('search')}}" type="get">
-                
                 <div class="input-group mb-4 d-flex justify-content-start">
                     <div class="w-75 rounded-start">
                         <input type="search" id="form1" name='query' class="form-control" placeholder="Search"/>
@@ -15,13 +14,12 @@
                     </button>
                 </div>
             </form>
-       
-            {{-- {{$items['id']}}   --}}
-            @foreach($items as $categoryItems)
+
+            @foreach($items as $key=>$categoryItems)
                 
             <div class="card mb-3">
-                <div class="card-header">{{$categoryItems[0]['category']['name']}} <a href="#"> View All</a></div>
-                
+                {{-- Temporary fix, its bad --}}
+                <div class="card-header">{{$categories[$key-1]['name']}}   <a href="{{route('category',$key)}}">View All</a></div>
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -29,11 +27,10 @@
                     </div>
                     @endif
                     
-                    <div class="">
-                        <div class="d-flex justify-content-auto-start row row-cols-5 ">
+                    <div class="container">
+                        <div class="d-flex justify-content-auto row row-cols-5 ">
                             @foreach($categoryItems as $item)
-
-                            <a class="col text-decoration-none" href="#" >
+                            <a class="col text-decoration-none" href="{{route('productDetail',$item['id'])}}" >
                                 <img class="img-fluid img-thumbnail"   src="{{Storage::url('Images\nerfGun.jpg')}}" alt="Responsive image">
                                 <div class="text-start row ">
                                     <span class="d-inline-block text-truncate" style="max-width:300px; ">{{$item['name']}} </span>
@@ -49,6 +46,7 @@
                     
                 </div>
             </div>
+            
             @endforeach            
         </div>
     </div>
