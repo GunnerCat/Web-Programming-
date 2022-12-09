@@ -11,7 +11,7 @@
 
 This is le project for Lab 
 
-##IMPORTANT TASK LIST
+## IMPORTANT TASK LIST
 - [x] change db relationship and interaction of category and user
 - [x] Validation of password in which password needs to be alphanumeric and has a minimum 8 characters
 - [x] Create Database for: Category
@@ -21,9 +21,12 @@ This is le project for Lab
 - [x] build back end query
 - [x] Make View All
 - [x] Item Detail
+- [X] make receipt DB
+- [ ] ADMIN VALIDATION IN MIDDLEWARE PLEASE MAKE ITS IMPORTANT (which role can see which, and middleware authentication)
 - [ ] Add validation in which date must be before today but after 01-01-1900
 - [ ] product Management (CRUD)
-- [ ] make receipt DB
+- [ ] Checkout edit, remove, and purchase
+- [ ] Add Pagination
 
 
 
@@ -32,4 +35,5 @@ This is le project for Lab
 ## QOL Task List
 - [ ] Show Gender error when the validation isnt fullfilled
 - [ ] Change input box from writeable input to button or some sort idk 
-- [ ] Add Pagination
+- [ ] add error message if quantity validation not fullfilled in page detail 
+- [ ] After adding product to checkout, give a confirmation
