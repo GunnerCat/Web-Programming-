@@ -7,8 +7,11 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductDetailController;
+use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ShoppingCart;
 use App\Models\Category;
+use App\Models\receipt;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
@@ -44,7 +47,10 @@ Route::middleware('globalVar')->group(function(){
     Route::get('/category/{id}',[CategoryController::class,'ShowCategory'])->name('category');
     
     Route::get('/ProductDetail/{id}',[ProductDetailController::class,'ShowProductDetail'])->name('productDetail');
-
+    Route::post('/Purchase',[ReceiptController::class,'purchase'])->name('purchase');
+    
+    
+    Route::get('/checkout',[ShoppingCart::class,'showShoppingCart'])->name('checkout');
 });
 
 
