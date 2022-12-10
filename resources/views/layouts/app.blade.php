@@ -44,8 +44,8 @@
                                 {{-- Category foreach added, please implement it through --}}
                                 
                                 <ul class="dropdown-menu">
-                                    @foreach ($categories as $category)
-                                    <li><a class="dropdown-item" href="#">{{$category['name']}}</a></li>
+                                    @foreach ($categories as $key => $category)
+                                    <li><a class="dropdown-item" href="{{route('category',$key+1)}}">{{$category['name']}}</a></li>
                                     @endforeach
                                 </ul>
                                 @Auth
@@ -81,6 +81,12 @@
                                 </li>
                             @endif
                         @else
+                        @if(Auth::user()['admin']==0)
+                            <a class="nav-link" href="{{route('checkout')}}">
+                                checkout
+                            </a>
+                            <div class="vr"></div>
+                        @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
