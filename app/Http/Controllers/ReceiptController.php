@@ -7,6 +7,7 @@ use App\Models\ReceiptDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ReceiptController extends Controller
 {
@@ -21,16 +22,16 @@ class ReceiptController extends Controller
         //else, create a new receipt.
             
         // where user receipt last purchase stat is 0
-        $receipt = DB::table('receipts')
-            ->where('user_id',Auth::user()['id'])
+            $receipt = receipt::where('user_id',Auth::user()['id'])
             ->where('purchased',false)
             ->latest()
             ->first();
+            
         // if there is no receipt at all, or if there is not receipt that are not purchased, make a new receipt
         if(!$receipt){
             $receipt = new receipt();
             $receipt->user_id = Auth::user()['id'];
-            $receipt->totalPrice = 0;
+            $receipt->totalPrice =0;
             $receipt->save();
         }
         
@@ -40,6 +41,13 @@ class ReceiptController extends Controller
             ['quantity'=> DB::raw('quantity + '.$request['quantity'])],
         );
         $item->save();
-        return redirect()->back()->with('message', 'IT WORKS!');
+
+        $receipt->totalPrice = $receipt->totalPrice+($request->price*$request->quantity);
+
+        $receipt->save();
+
+        
+        
+        return redirect()->back()->with('message', $receipt->totalPrice);
     }
 }

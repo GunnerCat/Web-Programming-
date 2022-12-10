@@ -23,6 +23,7 @@ This is le project for Lab
 - [x] Item Detail
 - [X] make receipt DB
 - [ ] ADMIN VALIDATION IN MIDDLEWARE PLEASE MAKE ITS IMPORTANT (which role can see which, and middleware authentication)
+- [ ] Add User validation, no guest can get to checkout
 - [ ] Add validation in which date must be before today but after 01-01-1900
 - [ ] product Management (CRUD)
 - [ ] Checkout edit, remove, and purchase

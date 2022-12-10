@@ -51,6 +51,7 @@ Route::middleware('globalVar')->group(function(){
     
     
     Route::get('/checkout',[ShoppingCart::class,'showShoppingCart'])->name('checkout');
+    Route::post('/checkout/remove',[ShoppingCart::class,'manageItem'])->name('manageItem');
 });
 
 
