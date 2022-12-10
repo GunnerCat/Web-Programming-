@@ -27,7 +27,7 @@
                     <div class="container">
                         <div class="d-flex justify-content-auto row row-cols-5 ">
                             @foreach($items as $item)
-                            <a class="col text-decoration-none" href="#" >
+                            <a class="col text-decoration-none" href="{{route('productDetail',$item['id'])}}" >
                                 <img class="img-fluid img-thumbnail"   src="{{Storage::url('Images\nerfGun.jpg')}}" alt="Responsive image">
                                 <div class="text-start row ">
                                     <span class="d-inline-block text-truncate" style="max-width:300px; ">{{$item['name']}} </span>
