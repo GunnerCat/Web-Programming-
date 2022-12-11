@@ -48,14 +48,14 @@ Route::middleware('globalVar')->group(function(){
         Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         Route::get('/result',[SearchController::class,'Search'])->name('search');
     });
+    Route::get('/ProductDetail/{id}',[ProductDetailController::class,'ShowProductDetail'])->name('productDetail');
+    Route::get('/category/{id}',[CategoryController::class,'ShowCategory'])->name('category');
 
 
 
     route::middleware('isUser')->group(function(){
-        Route::get('/category/{id}',[CategoryController::class,'ShowCategory'])->name('category');
-        Route::get('/ProductDetail/{id}',[ProductDetailController::class,'ShowProductDetail'])->name('productDetail');
         Route::post('/addToCart',[ReceiptController::class,'addToCart'])->name('addToCart');
-
+        
         Route::prefix('/checkout')->group(function(){
             Route::get('',[ShoppingCart::class,'showShoppingCart'])->name('checkout');
             Route::post('/remove',[ShoppingCart::class,'manageItem'])->name('manageItem');
