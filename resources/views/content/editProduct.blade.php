@@ -7,6 +7,7 @@
             <div class="card-header"> testing</div>
             <form id="form"class="p-3" action="/ProductManagement/proceedEdit" method="post" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="form-group mb-3">
                     <label for="name_input">Product Name</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name_input" name="name" placeholder="">
@@ -59,7 +60,8 @@
                     @enderror
                 </div>
                 
-                <input type="input" id="item_id"  >
+                <input type="hidden" name="item_id" value="{{$id}}">
+                
                 <button type="submit" class="btn btn-secondary mt-3">Add Product</button>
             </form>
         </div>
