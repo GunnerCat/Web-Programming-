@@ -30,11 +30,13 @@
                     <div class="container">
                         <div class="d-flex justify-content-auto row row-cols-5 ">
                             @foreach($categoryItems as $item)
-                            <a class="col text-decoration-none" href="{{route('productDetail',$item['id'])}}" >
-                                <img class="img-fluid img-thumbnail"   src="{{Storage::url('Images\nerfGun.jpg')}}" alt="Responsive image">
-                                <div class="text-start row ">
-                                    <span class="d-inline-block text-truncate" style="max-width:300px; ">{{$item['name']}} </span>
-                                    <span >IDR {{$item['price']}}</span>
+                            <a class="col text-decoration-none d-flex flex-column" href="{{route('productDetail',$item['id'])}}" >
+                                <img class="img-thumbnail"   src="{{Storage::url($item['photo'])}}" alt="Responsive image">
+                                <div class="position-sticky top-100">
+                                    <div class="row">
+                                        <span class="d-inline-block text-truncate" style="max-width:300px; ">{{$item['name']}} </span>
+                                        <span >{{'IDR. '.number_format($item['price'], 2, '.', ',')}}</span>
+                                    </div>
                                 </div>
                             </a>
 

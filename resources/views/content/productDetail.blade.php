@@ -10,7 +10,7 @@
                 {{ session('status') }}
             </div>
             @endif
-            <img class="img-thumbnail col-4"   src="{{Storage::url('Images\nerfGun.jpg')}}" alt="Responsive image">
+            <img class="img-thumbnail col-4"   src="{{Storage::url($item['photo'])}}" alt="Responsive image">
             <div class="d-flex flex-column m-3">     
                 <div class="fw-bold h3 text-break">{{$item['name']}}</div>
                     <div class="d-flex flex-row">    
@@ -21,8 +21,8 @@
                         <div class="me-5 vw-auto">Price: &nbsp;</div>
                         <p>{{'IDR. '.number_format($item['price'], 2, '.', ',')}}</p>
                     </div>
-                    {{-- @if(Auth::check() && Auth::user()['admin']==false) --}}
-                    <form id="form" data-route="{{route('purchase')}}" method="post">
+                    @if(Auth::check() && Auth::user()['admin']==false)
+                    <form id="form" data-route="{{route('addToCart')}}" method="post">
                         @csrf
                         <div class="d-flex flex-row">
                             <div class="me-5 vw-auto">qty: &nbsp;&nbsp;&nbsp;&nbsp;</div>
@@ -35,7 +35,7 @@
                             {{__('Purchase') }}
                         </button>
                     </form>
-                    {{-- @endif --}}
+                    @endif
                 </div>
             </div>
             
