@@ -16,25 +16,30 @@ class ShoppingCart extends Controller
         $this->middleware(function ($request, $next) {
             $this->receipt=receipt::with('items')
             ->where('user_id',Auth::user()['id'])
-            ->where('purchased',false);
+            ->where('purchased',false)
+            ->latest()
+            ->first();
             return $next($request);
         });
         
     }
     public function showShoppingCart(){
-        $receipt = count($this->receipt->get())==0 ? null : (count($this->receipt->get()[0]['items'])==0? null : $this->receipt->get());
+        $receipt = !$this->receipt ? null : (count($this->receipt['items'])==0? null : $this->receipt);
         return view('content.checkout',compact('receipt'));
     }
     public function manageItem(Request $request){
         switch($request->input('action')){
             case 'remove':
                 $targetItem = ReceiptDetail::where('receipt_id',$request->receipt_id)
-                ->where('item_id',$request->item_id);
+                ->where('item_id',$request->item_id)
+                ->first();
 
                 $this->receipt
                 ->update(
                     ['totalPrice'=>DB::raw(
-                        'totalPrice-'.$this->receipt->get()[0]['items'][$request->item_location]['price']*$targetItem->get()[0]['quantity'])]);
+                        'totalPrice-'.$this->receipt['items']
+                        [$request->item_location]['price']*                        
+                        $targetItem['quantity'])]);
                     
                 $targetItem->delete();
 
@@ -45,7 +50,11 @@ class ShoppingCart extends Controller
                 break;
 
         }
-
-
+    }
+    public function purchase(Request $request){
+        $this->receipt['purchased']=1;
+        $this->receipt->save();
+        return redirect()->back()->with('message', '$request->id');
+        // return response()->json(['message'=> $this->receipt['purchased']],200);
     }
 }
