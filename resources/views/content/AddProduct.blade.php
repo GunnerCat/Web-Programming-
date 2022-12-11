@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-center">
         <div class="card w-50">
             <div class="card-header"> testing</div>
-            <form class="p-3" action="@yield('action','{{route("addProduct")}}')" method="post" enctype="multipart/form-data">
+            <form class="p-3" action="{{route("addProduct")}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="name_input">Product Name</label>

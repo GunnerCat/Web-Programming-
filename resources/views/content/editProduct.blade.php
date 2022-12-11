@@ -5,9 +5,8 @@
     <div class="d-flex justify-content-center">
         <div class="card w-50">
             <div class="card-header"> testing</div>
-            <form id="form"class="p-3" action="/ProductManagement/proceedEdit" method="post" enctype="multipart/form-data">
+            <form id="form"class="p-3" action="{{route('editProduct')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
                 <div class="form-group mb-3">
                     <label for="name_input">Product Name</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name_input" name="name" placeholder="">
@@ -62,7 +61,7 @@
                 
                 <input type="hidden" name="item_id" value="{{$id}}">
                 
-                <button type="submit" class="btn btn-secondary mt-3">Add Product</button>
+                <button type="submit" class="btn btn-secondary mt-3">Update Product</button>
             </form>
         </div>
     </div>

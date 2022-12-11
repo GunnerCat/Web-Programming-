@@ -53,7 +53,7 @@ class ManageProduct extends Controller
         $imageName = time().'.'.$photo->getClientOriginalExtension();
         //it picks the uploaded file and set it with the name of imageName, and then put it inside public/images/
 
-        // Storage::delete('public/'.$oldItem->get()->photo);
+        Storage::delete('public/'.$oldItem->photo);
         Storage::putFileAs('public/images/',$photo,$imageName);
         //put a directory behind the image name so the DB could figure out the actualy dir
         $imageName = 'images/'.$imageName;
@@ -65,6 +65,8 @@ class ManageProduct extends Controller
             'price' => $request['price'],
             'photo' => $imageName,
         ]);
+        
+        return redirect()->back();
     }
 
     
