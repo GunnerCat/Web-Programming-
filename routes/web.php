@@ -1,12 +1,13 @@
 <?php
-
 use App\Http\Controllers\Auth\ConfirmPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ManageProduct;
 use App\Http\Controllers\ProductDetailController;
+use App\Http\Controllers\ProductManagementController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShoppingCart;
@@ -28,7 +29,7 @@ use Illuminate\Support\Facades\View;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
 
 Auth::routes();
@@ -47,11 +48,23 @@ Route::middleware('globalVar')->group(function(){
     Route::get('/category/{id}',[CategoryController::class,'ShowCategory'])->name('category');
     
     Route::get('/ProductDetail/{id}',[ProductDetailController::class,'ShowProductDetail'])->name('productDetail');
-    Route::post('/Purchase',[ReceiptController::class,'purchase'])->name('purchase');
+    Route::post('/addToCart',[ReceiptController::class,'addToCart'])->name('addToCart');
     
     
     Route::get('/checkout',[ShoppingCart::class,'showShoppingCart'])->name('checkout');
     Route::post('/checkout/remove',[ShoppingCart::class,'manageItem'])->name('manageItem');
+    Route::post('/checkout/purchase',[ShoppingCart::class,'purchase'])->name('purchase');
+
+    Route::get('/ProductManagement',[ProductManagementController::class,'ShowProductManageMenu'])->name('manageProduct');
+    Route::get('/ProductManagement/result',[ProductManagementController::class,'SearchItem'])->name('searchItem_admin');
+    Route::post('/ProductManagement/removeProduct',[ProductManagementController::class,'removeProduct'])->name('removeProduct');
+    
+    Route::get('/ProductManagement/editProduct/{id}',[ProductManagementController::class,'ShowEditPage'])->name('showEditPage');
+    Route::post('/ProductManagement/proceedEdit',[ManageProduct::class,'editProduct'])->name('editProduct');
+    
+    Route::get('/ProductManagement/addProduct',[ProductManagementController::class,'ShowAddProductPage'])->name('addProductPage');
+    Route::post('/ProductManagement/addProduct/proceed',[ManageProduct::class,'AddProduct'])->name('addProduct');
+
 });
 
 
