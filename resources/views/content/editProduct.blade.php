@@ -58,8 +58,9 @@
                     </div>
                     @enderror
                 </div>
-                
-                <input type="input" id="item_id"  >
+                {{$id}}
+                <input type="hidden" name="item_id" value="{{$id}}">
+
                 <button type="submit" class="btn btn-secondary mt-3">Add Product</button>
             </form>
         </div>

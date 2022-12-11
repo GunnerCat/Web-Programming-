@@ -23,8 +23,8 @@ class ProductManagementController extends Controller
         return redirect()->back()->with('message', '$request->id');
 
     }
-    public function ShowEditPage(Request $request){
-        return view('content.editProduct',['id'=>$request->item_id]);
+    public function ShowEditPage($id){
+        return view('content.editProduct',['id'=>$id]);
 
     }
     public function ShowAddProductPage(){
