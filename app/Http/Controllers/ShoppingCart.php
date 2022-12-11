@@ -39,7 +39,10 @@ class ShoppingCart extends Controller
                     ['totalPrice'=>DB::raw(
                         'totalPrice-'.$this->receipt['items']
                         [$request->item_location]['price']*                        
-                        $targetItem['quantity'])]);
+                        $targetItem['quantity'])],
+                    ['totalQuantity'=>DB::raw(
+                        'totalQuantity-'.$targetItem['quantity'])]
+                    );
                     
                 $targetItem->delete();
 

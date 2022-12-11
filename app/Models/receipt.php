@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class receipt extends Model
 {
-    protected $hidden=['created_at','updated_at'];
+    protected $hidden=['updated_at'];
     protected $fillable=['totalPrice'];
 
     use HasFactory;

@@ -17,7 +17,7 @@ class CreateReceiptsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->bigInteger('totalPrice');
-            
+            $table->bigInteger('totalQuantity');
             $table->boolean('purchased')->default(false);
             $table->timestamps();
         });

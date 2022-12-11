@@ -32,6 +32,7 @@ class ReceiptController extends Controller
             $receipt = new receipt();
             $receipt->user_id = Auth::user()['id'];
             $receipt->totalPrice =0;
+            $receipt->totalQuantity =0;
             $receipt->save();
         }
         
@@ -43,6 +44,7 @@ class ReceiptController extends Controller
         $item->save();
 
         $receipt->totalPrice = $receipt->totalPrice+($request->price*$request->quantity);
+        $receipt->totalQuantity = $receipt->totalQuantity+($request->quantity);
         $receipt->save();
 
         
