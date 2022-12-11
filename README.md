@@ -23,11 +23,12 @@ This is le project for Lab
 - [x] Item Detail
 - [X] make receipt DB
 - [X] Checkout ~~edit~~, remove, and purchase
-- [ ] ADMIN VALIDATION IN MIDDLEWARE PLEASE MAKE ITS IMPORTANT (which role can see which, and middleware authentication)
-- [ ] Add User validation, no guest can get to checkout
+- [X] product Management (CRUD)
+- [X] User Profile
+- [X] Add User validation, no guest can get to checkout
+- [X] ADMIN VALIDATION IN MIDDLEWARE PLEASE MAKE ITS IMPORTANT (which role can see which, and middleware authentication)
 - [ ] Add validation in which date must be before today but after 01-01-1900
-- [ ] product Management (CRUD)
-- [ ] Add Pagination
+- [ ] Add Pagination product management
 
 
 
