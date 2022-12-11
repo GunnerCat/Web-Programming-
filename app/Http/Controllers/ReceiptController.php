@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 class ReceiptController extends Controller
 {
-    protected function purchase(Request $request)
+    protected function addToCart(Request $request)
     {
         $request->validate([
             'quantity' => ['required', 'integer'],
@@ -43,7 +43,6 @@ class ReceiptController extends Controller
         $item->save();
 
         $receipt->totalPrice = $receipt->totalPrice+($request->price*$request->quantity);
-
         $receipt->save();
 
         

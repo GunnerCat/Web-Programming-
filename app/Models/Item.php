@@ -9,6 +9,7 @@ class Item extends Model
 {
     use HasFactory;
     protected $hidden=['created_at','updated_at'];
+    protected $guarded=[];
     public function category(){
         return $this->belongsTo(Category::class);
     }
