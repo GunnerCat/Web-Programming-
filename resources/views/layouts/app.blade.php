@@ -59,7 +59,7 @@
 
                             <div class="vr"></div>
                         </div>
-                        <a class="nav-link nav-item" href="#" >
+                        <a class="nav-link nav-item" href="{{route('manageProduct')}}" >
                             Manage Product
                         </a>
                         @endadmin
