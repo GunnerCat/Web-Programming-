@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'globalVar' => \App\Http\Middleware\GlobalVariable::class,
         'isAdmin' => \App\Http\Middleware\AdminAuthenticator::class,
         'isUser' => \App\Http\Middleware\UserAuthenticator::class,
+        'isNonGuest' => \App\Http\Middleware\NonGuestAuthenticator::class,
     ];
 }

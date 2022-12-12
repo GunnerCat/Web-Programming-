@@ -39,7 +39,6 @@ Auth::routes();
 Route::middleware('globalVar')->group(function(){
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-    Route::get('/profile', [ProfileController::class, 'ShowProfile'])->name('profile');
     Route::get('/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
     Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
     Route::get('/password/confirm', [ConfirmPasswordController::class, 'showConfirmForm'])->name('password.confirm');
@@ -50,8 +49,10 @@ Route::middleware('globalVar')->group(function(){
     });
     Route::get('/ProductDetail/{id}',[ProductDetailController::class,'ShowProductDetail'])->name('productDetail');
     Route::get('/category/{id}',[CategoryController::class,'ShowCategory'])->name('category');
-
-
+    route::middleware('isNonGuest')->group(function(){
+        Route::get('/profile', [ProfileController::class, 'ShowProfile'])->name('profile');
+    });
+    
 
     route::middleware('isUser')->group(function(){
         Route::post('/addToCart',[ReceiptController::class,'addToCart'])->name('addToCart');
@@ -63,13 +64,13 @@ Route::middleware('globalVar')->group(function(){
         });
         Route::get('/history',[HistoryPageController::class,'ShowHistoryPage'])->name('history');
     });
-
+    
     Route::middleware('isAdmin')->group(function(){
         Route::prefix('/product_management')->group(function(){
             Route::get('',[ProductManagementController::class,'ShowProductManageMenu'])->name('manageProduct');
             Route::get('/result',[ProductManagementController::class,'SearchItem'])->name('searchItem_admin');
             Route::post('/removeProduct',[ProductManagementController::class,'removeProduct'])->name('removeProduct');
-
+            
             Route::get('/editProduct/{id}',[ProductManagementController::class,'ShowEditPage'])->name('showEditPage');
             Route::post('/proceedEdit',[ManageProduct::class,'editProduct'])->name('editProduct');
             
@@ -77,6 +78,6 @@ Route::middleware('globalVar')->group(function(){
             Route::post('/addProduct/proceed',[ManageProduct::class,'AddProduct'])->name('addProduct');     
         });
     });
-        
+    
 });
 
