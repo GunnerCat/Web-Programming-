@@ -31,8 +31,8 @@
                         <div class="d-flex justify-content-auto  row row-cols-5 ">
                             @foreach ($products as $product)
                             <a class="col text-decoration-none  " href="#">
-                                <img class="img-fluid img-thumbnail"   src="{{Storage::url('Images\nerfGun.jpg')}}" alt="Responsive image">
-                                <div class="text-start row ">
+                                <img class="img-fluid img-thumbnail"   src="{{Storage::url($product['photo'])}}" alt="Responsive image">
+                                <div class="text-start row position-sticky top-100">
                                     <span class="d-inline-block text-truncate" style="max-width:300px; ">{{$product['name']}} </span>
                                     <span>IDR {{$product['price']}}</span>
                                 </div>
