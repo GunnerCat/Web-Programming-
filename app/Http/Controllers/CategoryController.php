@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function ShowCategory($id){
         $category = Category::find($id);
-        $items = $category->items()->get();
+        $items = $category->items()->paginate(10);
         return view ('content.category',compact('items','category'));
     }
 }

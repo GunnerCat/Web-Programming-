@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProductManagementController extends Controller
 {
     public function ShowProductManageMenu(){
-        $items=Item::all()->sortBy('name');
+        $items=Item::paginate(10);
         return view('content.ProductManagement',compact('items'));
     }
     public function SearchItem(){

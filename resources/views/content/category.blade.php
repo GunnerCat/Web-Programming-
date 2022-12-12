@@ -38,6 +38,7 @@
                             @endforeach
                             
                         </div>
+                        {{$items->links()}}
                     </div>
                     
                     

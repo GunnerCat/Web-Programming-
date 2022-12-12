@@ -51,6 +51,10 @@
             <hr>
             @endforeach
         </div>
+        <div class="pagination-block">
+
+            {{ $items->links() }}
+        </div>
     </div>
 </div>
 
