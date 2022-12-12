@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="name_input">Country</label>
-                    <input type="text" class="form-control" id="name_input" name="country" value="{{Auth::user()['country']}}" disabled>
+                    <input type="text" class="form-control" id="name_input" name="country" value="{{Auth::user()['country']['name']}}" disabled>
                 </div>
 
             </div>

@@ -72,17 +72,18 @@
                             <div class="d-flex flex-column col-md-6 @error('radio_button_gender') is-invalid  @enderror">
                                 {{--no error message when validation failed, please add--}}
                                 <div class="d-inline-flex form-check">
-                                    <input class="form-check-input me-1 " type="radio" name="radio_button_gender" id="Male" value="Male" required>
+                                    <input class="form-check-input me-1 " type="radio" name="radio_button_gender" id="Male" value="Male">
                                     <label class="form-check-label" for="Male">
                                         Male
                                     </label>
                                 </div>
                                 <div class="d-inline-flex form-check">
-                                    <input class="form-check-input me-1" type="radio"  name="radio_button_gender" id="Female" value="Female" required>
+                                    <input class="form-check-input me-1" type="radio"  name="radio_button_gender" id="Female" value="Female">
                                     <label class="form-check-label" for="Female">
                                         Female
                                     </label>
                                 </div>
+
                                 @error('radio_button_gender')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -117,7 +118,7 @@
                                 <select class="col-form-label form-control @error('country') is-invalid @enderror" style="" name="country" >
                                     <option value="" selected disabled hidden>Select a country</option>
                                     @foreach ($Countries as $country)
-                                    <option value={{$country['name']}}>{{$country['name']}}</option>
+                                    <option value={{$country['id']}}>{{$country['name']}}</option>
                                     @endforeach
                                     
                                 </select>
