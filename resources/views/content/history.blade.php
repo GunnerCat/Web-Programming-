@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    @if (count($receipts)==0)
+    <div class="text-center">
+        {{'There is nothing here too in history :D'}}
+    </div>
+    @else
     <div class="row justify-content-center">
         <div class="col-xxl-12">
             @foreach($receipts  as $key=>$items)
@@ -16,24 +21,24 @@
                     <div class="container">
                         <div class="row h2 fw-bold">
                             <div class="col-6 border ">
-                              Name
+                                Name
                             </div>
                             <div class="col border">
-                              Quantity
+                                Quantity
                             </div>
                             <div class="col border">
-                              Sub Price
+                                Sub Price
                             </div>
                         </div>
-                            @foreach($items['items'] as $item)
-                            <div class="row h3 mb-0">
-                                <div class="col-6 border">
-                                  {{$item['name']}}
-                                </div>
-                                <div class="col border">
-                                    {{$item['pivot']['quantity']}}
-                                </div>
-                                <div class="col border">
+                        @foreach($items['items'] as $item)
+                        <div class="row h3 mb-0">
+                            <div class="col-6 border">
+                                {{$item['name']}}
+                            </div>
+                            <div class="col border">
+                                {{$item['pivot']['quantity']}}
+                            </div>
+                            <div class="col border">
                                     {{'IDR. '.number_format($item['price'], 2, '.', ',')}}
                                 </div>
                             </div>
@@ -49,15 +54,17 @@
                                     {{'IDR. '.number_format($items['totalPrice'], 2, '.', ',')}}
                                 </div>
                             </div>
+                            
+                        </div>
+                        
                         
                     </div>
-                    
-                    
                 </div>
+                
+                @endforeach            
             </div>
-            
-            @endforeach            
         </div>
+        @endif
     </div>
-</div>
 @endsection
+    
