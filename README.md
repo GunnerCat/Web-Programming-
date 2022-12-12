@@ -27,14 +27,16 @@ This is le project for Lab
 - [X] User Profile
 - [X] Add User validation, no guest can get to checkout
 - [X] ADMIN VALIDATION IN MIDDLEWARE PLEASE MAKE ITS IMPORTANT (which role can see which, and middleware authentication)
+- [X] Add Pagination product management
 - [ ] Add validation in which date must be before today but after 01-01-1900
-- [ ] Add Pagination product management
 
 
 
 
 
 ## QOL Task List
+
+- [X] change Country to an id based 
 - [ ] Show Gender error when the validation isnt fullfilled
 - [ ] Change input box from writeable input to button or some sort idk 
 - [ ] add error message if quantity validation not fullfilled in page detail 
