@@ -33,7 +33,7 @@ class ManageProduct extends Controller
             'price' => $request['price'],
             'photo' => $imageName,
         ]);
-        return redirect()->back();
+        return redirect('/product_management');
     }
 
     public function editProduct(Request $request){
@@ -66,7 +66,7 @@ class ManageProduct extends Controller
             'photo' => $imageName,
         ]);
         
-        return redirect()->back();
+        return redirect('/product_management');
     }
 
     
