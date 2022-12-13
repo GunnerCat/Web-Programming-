@@ -28,7 +28,7 @@ This is le project for Lab
 - [X] Add User validation, no guest can get to checkout
 - [X] ADMIN VALIDATION IN MIDDLEWARE PLEASE MAKE ITS IMPORTANT (which role can see which, and middleware authentication)
 - [X] Add Pagination product management
-- [ ] Add validation in which date must be before today but after 01-01-1900
+- [X] Add validation in which date must be before today but after 01-01-1900
 
 
 
