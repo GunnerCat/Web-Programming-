@@ -48,7 +48,7 @@ class ReceiptController extends Controller
         $receipt->totalQuantity = $receipt->totalQuantity+($request->quantity);
         $receipt->save();
         
-        return redirect()->route('home');
+        return redirect('/home');
         
         
         
