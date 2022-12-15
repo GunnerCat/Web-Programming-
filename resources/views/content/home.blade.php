@@ -30,10 +30,8 @@
                     <div class="container">
                         <div class="d-flex justify-content-auto row row-cols-5 ">
                             @foreach($categoryItems as $item)
-                            <a class="col text-decoration-none d-flex flex-column"  href="{{route('productDetail',$item['id'])}}" >
-                                <div>
-                                    <img  src="{{Storage::url($item['photo'])}}" alt="Responsive image" class="cont-img">
-                                </div>
+                            <a class="col text-decoration-none d-flex flex-column" href="{{route('productDetail',$item['id'])}}" >
+                                <img class="cont-img" src="{{Storage::url($item['photo'])}}" alt="Responsive image">
                                 <div class="position-sticky top-100">
                                     <div class="row">
                                         <span class="d-inline-block text-truncate" style="max-width:300px; ">{{$item['name']}} </span>
