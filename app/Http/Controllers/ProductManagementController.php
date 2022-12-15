@@ -14,7 +14,7 @@ class ProductManagementController extends Controller
     }
     public function SearchItem(){
         $query = $_GET['query'];
-        $items = item::where('name','LIKE','%'.$query.'%')->get();
+        $items = item::where('name','LIKE','%'.$query.'%')->paginate(10);
         return view('content.productManagementSearchResult',compact('items'));
     }
     public function removeProduct(Request $request){
