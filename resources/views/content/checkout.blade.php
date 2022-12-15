@@ -44,7 +44,6 @@
                                 <input type="hidden" value="{{$item['id']}}" name="item_id">
                                 <input type="hidden" value="{{$key}}" name="item_location">
                                 <input type="hidden" value="{{$receipt['id']}}" name="receipt_id">
-                                <button name="action" value="edit" type="submit" class="btn btn-primary">Edit</button>
                                 <button name="action" value="remove" type="submit" class="btn btn-primary">Delete</button>
                             </div>
                         </form>
