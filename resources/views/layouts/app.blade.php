@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
@@ -42,16 +43,16 @@
                                     Category
                                 </a>
                                 {{-- Category foreach added, please implement it through --}}
-                                
+
                                 <ul class="dropdown-menu">
                                     @foreach ($categories as $key => $category)
                                     <li><a class="dropdown-item" href="{{route('category',$key+1)}}">{{$category['name']}}</a></li>
                                     @endforeach
                                 </ul>
                                 @Auth
-                                
+
                                 @endauth
-                                
+
                             </li>
                         @endif
                         @admin
@@ -106,7 +107,7 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                    
+
                                     <form id="profile-form" action="{{ route('profile') }}" method="get" class="d-none">
                                         @csrf
                                     </form>
