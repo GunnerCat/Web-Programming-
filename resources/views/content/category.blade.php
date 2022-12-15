@@ -13,22 +13,25 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-            </form>             
+            </form>
             <div class="card mb-3">
                 <div class="card-header">{{$category['name']}}</div>
-                
+
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                     @endif
-                    
+
                     <div class="container">
                         <div class="d-flex justify-content-auto row row-cols-5 ">
                             @foreach($items as $item)
                             <a class="col text-decoration-none" href="{{route('productDetail',$item['id'])}}" >
-                                <img class="img-fluid img-thumbnail"   src="{{Storage::url($item['photo'])}}" alt="Responsive image">
+                                <div>
+                                    <img src="{{Storage::url($item['photo'])}}" alt="Responsive image" class="cont-img">
+                                </div>
+
                                 <div class="text-start row ">
                                     <span class="d-inline-block text-truncate" style="max-width:300px; ">{{$item['name']}} </span>
                                     <span >IDR {{$item['price']}}</span>
@@ -36,14 +39,14 @@
                             </a>
 
                             @endforeach
-                            
+
                         </div>
                         {{$items->links()}}
                     </div>
-                    
-                    
+
+
                 </div>
-            </div>      
+            </div>
         </div>
     </div>
 </div>

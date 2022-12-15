@@ -1,14 +1,5 @@
 @extends('layouts.app')
 
-<style>
-    .cont-img{
-        width:100%;
-        height:300px;
-        object-fit:scale-down;
-        object-position:50% 50%
-    }
-</style>
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
