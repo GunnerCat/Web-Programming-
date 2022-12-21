@@ -57,7 +57,7 @@ class ShoppingCart extends Controller
     public function purchase(Request $request){
         $this->receipt['purchased']=1;
         $this->receipt->save();
-        return redirect()->back()->with('message', '$request->id');
+        return redirect('/history');
         // return response()->json(['message'=> $this->receipt['purchased']],200);
     }
 }
