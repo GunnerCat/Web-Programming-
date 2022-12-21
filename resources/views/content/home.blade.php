@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xxl-12">
+            
             <form action="{{route('search')}}" type="get">
                 <div class="input-group mb-4 d-flex justify-content-start">
                     <div class="w-75 rounded-start">
